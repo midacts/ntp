@@ -35,7 +35,7 @@ class ntp {
     ensure	=> latest,
   }
 
-  file { '/etc/ntp.conf/:
+  file { '/etc/ntp.conf/':
     ensure	=> present,
     content	=> template('ntp/ntp.conf.erb'),
     owner	=> root,
