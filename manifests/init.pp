@@ -27,7 +27,7 @@ class ntp {
       $service	= 'ntpd'
     }
     debian, ubuntu: {
-      $service	= 'ntpd'
+      $service	= 'ntp'
     }
   }
 
@@ -35,7 +35,7 @@ class ntp {
     ensure	=> latest,
   }
 
-  file { '/etc/ntp.conf/':
+  file { '/etc/ntp.conf':
     ensure	=> present,
     content	=> template('ntp/ntp.conf.erb'),
     owner	=> root,
@@ -46,6 +46,7 @@ class ntp {
   service { $service:
     enable	=> true,
     ensure	=> true,
+    subscribe => File['/etc/ntp.conf'],
   }
 
 }
