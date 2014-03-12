@@ -1,6 +1,6 @@
 # == Class
 #
-# pwd_mgmt
+# ntp
 #
 # == Synopsis
 #
